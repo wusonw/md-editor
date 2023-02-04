@@ -192,16 +192,6 @@ $font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     }
   }
 
-  .katex {
-    font-style: italic;
-    margin: $line-space 0;
-    padding: 0.5em 1em;
-    background-color: $light-color;
-    & > p {
-      margin: 0;
-    }
-  }
-
   code {
     padding: 2px 0.4em;
     overflow-x: auto;

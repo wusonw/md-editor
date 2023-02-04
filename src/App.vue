@@ -31,6 +31,7 @@ const theme = ref("channing-cyan");
 </script>
 
 <style lang="scss" scoped>
+@import "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css";
 .container {
   height: 100%;
   display: flex;
@@ -51,6 +52,18 @@ const theme = ref("channing-cyan");
     .preview {
       width: 50%;
       height: 100%;
+    }
+
+    .preview {
+      .katex {
+        font-style: italic;
+        margin: 12px 0;
+        padding: 0.5em 1em;
+        background-color: #f8f5ff;
+        & > p {
+          margin: 0;
+        }
+      }
     }
   }
 }

@@ -8,7 +8,9 @@ const md = new MarkdownIt({
   xhtmlOut: true,
 });
 
-md.use(Sub).use(Sup).use(Katex);
+md.use(Sub)
+  .use(Sup)
+  .use(Katex, { throwOnError: false, errorColor: " #cc0000" });
 
 const renderMarkdown = (mdText: string) => md.render(mdText) || mdText;
 
