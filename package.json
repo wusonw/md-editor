@@ -9,13 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-markdown": "^6.0.5",
+    "@codemirror/state": "^6.2.0",
+    "@codemirror/theme-one-dark": "^6.1.0",
+    "@codemirror/view": "^6.7.3",
+    "codemirror": "^6.0.1",
     "markdown-it": "^13.0.1",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.11.18",
     "@vitejs/plugin-vue": "^4.0.0",
     "sass": "^1.58.0",
