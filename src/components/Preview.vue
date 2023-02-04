@@ -15,4 +15,5 @@ const html = computed(() => renderMarkdown(props.mdText));
 
 <style lang="scss">
 @import "../assets/themes/fancy.scss";
+@import "../assets/themes/channing-cyan.scss";
 </style>
