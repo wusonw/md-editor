@@ -50,6 +50,14 @@ watch(
   () => code.value,
   () => {
     emit("update:modelValue", code.value);
+    console.log("code change");
+  }
+);
+watch(
+  () => props.modelValue,
+  () => {
+    code.value = props.modelValue;
+    console.log("props change");
   }
 );
 

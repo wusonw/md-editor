@@ -2,14 +2,16 @@
   <div class="container">
     <div class="header">
       <div class="toolbar">
-        预览主题
-        <n-popselect
-          v-model:value="theme"
-          :options="themeOptions"
-          trigger="click"
-        >
-          <n-button>{{ theme }}</n-button>
-        </n-popselect>
+        <n-space>
+          <n-popselect
+            v-model:value="theme"
+            :options="themeOptions"
+            trigger="click"
+          >
+            <n-button>{{ theme }}</n-button>
+          </n-popselect>
+          <MarkdownUploader @loaded="onFileLoaded" />
+        </n-space>
       </div>
     </div>
     <div class="main">
@@ -20,6 +22,7 @@
 </template>
 
 <script setup lang="ts">
+import MarkdownUploader from "./components/MarkdownUploader.vue";
 import Editor from "./components/Editor.vue";
 import Preview from "./components/Preview.vue";
 
@@ -28,6 +31,9 @@ const mdText = ref("");
 const THEMES = ["channing-cyan", "fancy"];
 const themeOptions = THEMES.map((theme) => ({ label: theme, value: theme }));
 const theme = ref("channing-cyan");
+
+const onFileLoaded = (content: string | null) =>
+  (mdText.value = content || mdText.value);
 </script>
 
 <style lang="scss" scoped>
@@ -41,6 +47,9 @@ const theme = ref("channing-cyan");
   .header {
     width: 90%;
     height: 50px;
+    .toolbar {
+      display: flex;
+    }
   }
   .main {
     width: 90%;

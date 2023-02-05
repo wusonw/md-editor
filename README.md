@@ -10,13 +10,10 @@ code editor is based on  [vue-codemirror](https://github.com/surmon-china/vue-co
 
 - [x] write markdown
 - [x] preview markdown with different themes
-
+- [x] upload markdown from local pc
+- [x] load markdown from url
 
 ## Todo
 
-- [ ] upload markdown from local pc
-- [ ] load markdown from url
 - [ ] generate pdf
 - [ ] save markdown,html and pdf files
-
-

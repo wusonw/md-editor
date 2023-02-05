@@ -8,8 +8,20 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Editor: typeof import('./src/components/Editor.vue')['default']
+    MarkdownUploader: typeof import('./src/components/MarkdownUploader.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
+    NDialogProvider: typeof import('naive-ui')['NDialogProvider']
+    NIcon: typeof import('naive-ui')['NIcon']
+    NInput: typeof import('naive-ui')['NInput']
+    NModal: typeof import('naive-ui')['NModal']
+    NP: typeof import('naive-ui')['NP']
     NPopselect: typeof import('naive-ui')['NPopselect']
+    NSpace: typeof import('naive-ui')['NSpace']
+    NText: typeof import('naive-ui')['NText']
+    NUpload: typeof import('naive-ui')['NUpload']
+    NUploadDragger: typeof import('naive-ui')['NUploadDragger']
+    NUploadm: typeof import('naive-ui')['NUploadm']
     Preview: typeof import('./src/components/Preview.vue')['default']
     ToolBar: typeof import('./src/components/ToolBar.vue')['default']
   }

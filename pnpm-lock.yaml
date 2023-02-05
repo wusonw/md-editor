@@ -7,6 +7,7 @@ specifiers:
   '@codemirror/view': ^6.7.3
   '@types/markdown-it': ^12.2.3
   '@types/node': ^18.11.18
+  '@vicons/ionicons5': ^0.12.0
   '@vitejs/plugin-vue': ^4.0.0
   codemirror: ^6.0.1
   markdown-it: ^13.0.1
@@ -28,6 +29,7 @@ dependencies:
   '@codemirror/state': 6.2.0
   '@codemirror/theme-one-dark': 6.1.0
   '@codemirror/view': 6.7.3
+  '@vicons/ionicons5': 0.12.0
   codemirror: 6.0.1
   markdown-it: 13.0.1
   markdown-it-katex: 2.0.3
@@ -799,6 +801,10 @@ packages:
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: true
+
+  /@vicons/ionicons5/0.12.0:
+    resolution: {integrity: sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==}
+    dev: false
 
   /@vitejs/plugin-vue/4.0.0_vite@4.1.1+vue@3.2.47:
     resolution: {integrity: sha512-e0X4jErIxAB5oLtDqbHvHpJe/uWNkdpYV83AOG2xo2tEVSzCzewgJMtREZM30wXnM5ls90hxiOtAuVU6H5JgbA==}
