@@ -10,6 +10,17 @@
   position: relative;
 }
 
+.preview .katex {
+  font-style: italic;
+  margin: 12px 0;
+  padding: 0.5em 1em;
+  background-color: #f8f5ff;
+}
+
+.preview .katex>p {
+  margin: 0;
+}
+
 /* 滚动槽 */
 ::-webkit-scrollbar {
   width: 6px;

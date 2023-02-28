@@ -1,5 +1,5 @@
 <template>
-  <n-button @click="showModal = true"> 上传 Markdown </n-button>
+  <n-button @click="showModal = true" size="large"> 上传 Markdown </n-button>
   <n-modal v-model:show="showModal">
     <n-card
       title="上传文件"
@@ -10,21 +10,23 @@
       aria-modal="true"
     >
       <n-space vertical>
-        <n-space>
+        <n-input-group>
           <n-input
             v-model:value="fileUrl"
             type="text"
             placeholder="从URL获取文件"
-            :loading="loaderState === LoaderState.LOADING"
+            :loading="isLoading"
             size="large"
           />
           <n-button
             type="primary"
             size="large"
             @click="onGetFileFromUrlBtnClicked"
-            >获取</n-button
           >
-        </n-space>
+            获取
+          </n-button>
+        </n-input-group>
+
         <n-upload
           directory-dnd
           :file-list="[]"
@@ -52,40 +54,33 @@
 
 <script lang="ts" setup>
 import { ArchiveOutline as ArchiveIcon } from "@vicons/ionicons5";
-import { getContentFromFileUrl } from "../utils/file";
 
 const emit = defineEmits(["loaded"]);
 
-enum LoaderState {
-  PRE = 0,
-  LOADING = 1,
-  LOADED = 2,
-  SUCCESS = 3,
-  ERROR = 4,
-}
-
 const showModal = ref(false);
-const loaderState = ref(LoaderState.PRE);
 const URL_REG =
   /^(((ht|f)tps?):\/\/)?([^!@#$%^&*?.\s-]([^!@#$%^&*?.\s]{0,63}[^!@#$%^&*?.\s])?\.)+[a-z]{2,6}\/?/;
 const fileUrl = ref("");
+const isLoading = ref(false);
 
 const onGetFileFromUrlBtnClicked = async () => {
   const check = URL_REG.test(fileUrl.value);
   let content = null as null | string;
   if (!check) {
-    loaderState.value = LoaderState.PRE;
+    alert("请输入正确的URL地址");
     return;
   }
   try {
-    loaderState.value = LoaderState.LOADING;
-    content = await getContentFromFileUrl(fileUrl.value);
+    isLoading.value = true;
+    const response = await fetch(fileUrl.value);
+    content = await response.text();
     if (content !== null) {
-      loaderState.value = LoaderState.SUCCESS;
+      isLoading.value = false;
       showModal.value = false;
     }
-  } catch {
-    loaderState.value = LoaderState.ERROR;
+  } catch (err) {
+    isLoading.value = false;
+    alert(err);
   } finally {
     emit("loaded", content);
   }
@@ -98,9 +93,8 @@ const onUploadedChange = async (uploaded: any) => {
     showModal.value = false;
   } catch {
     // message error
-    loaderState.value = LoaderState.ERROR;
+    alert("读取文件失败");
   } finally {
-    loaderState.value = LoaderState.LOADED;
     emit("loaded", content);
   }
 };
